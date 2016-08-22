@@ -1,0 +1,12 @@
+C:\mvccourse\AspNetMvcStarter\MovieDAL\bin\Debug\MovieDAL.dll.config
+C:\mvccourse\AspNetMvcStarter\MovieDAL\bin\Debug\MovieDAL.dll
+C:\mvccourse\AspNetMvcStarter\MovieDAL\bin\Debug\MovieDAL.pdb
+C:\mvccourse\AspNetMvcStarter\MovieDAL\bin\Debug\EntityFramework.dll
+C:\mvccourse\AspNetMvcStarter\MovieDAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\mvccourse\AspNetMvcStarter\MovieDAL\bin\Debug\EntityFramework.xml
+C:\mvccourse\AspNetMvcStarter\MovieDAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\mvccourse\AspNetMvcStarter\MovieDAL\obj\Debug\MovieDAL.csprojResolveAssemblyReference.cache
+C:\mvccourse\AspNetMvcStarter\MovieDAL\obj\Debug\MovieDAL.Migrations.Initial.resources
+C:\mvccourse\AspNetMvcStarter\MovieDAL\obj\Debug\MovieDAL.csproj.GenerateResource.Cache
+C:\mvccourse\AspNetMvcStarter\MovieDAL\obj\Debug\MovieDAL.dll
+C:\mvccourse\AspNetMvcStarter\MovieDAL\obj\Debug\MovieDAL.pdb

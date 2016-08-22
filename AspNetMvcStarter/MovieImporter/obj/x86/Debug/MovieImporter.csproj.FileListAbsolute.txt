@@ -1,0 +1,13 @@
+C:\mvccourse\AspNetMvcStarter\MovieImporter\bin\Debug\MovieImporter.exe.config
+C:\mvccourse\AspNetMvcStarter\MovieImporter\bin\Debug\filmer.mdb
+C:\mvccourse\AspNetMvcStarter\MovieImporter\bin\Debug\MovieImporter.exe
+C:\mvccourse\AspNetMvcStarter\MovieImporter\bin\Debug\MovieImporter.pdb
+C:\mvccourse\AspNetMvcStarter\MovieImporter\bin\Debug\EntityFramework.dll
+C:\mvccourse\AspNetMvcStarter\MovieImporter\bin\Debug\EntityFramework.SqlServer.dll
+C:\mvccourse\AspNetMvcStarter\MovieImporter\bin\Debug\MovieDAL.dll
+C:\mvccourse\AspNetMvcStarter\MovieImporter\bin\Debug\MovieDAL.pdb
+C:\mvccourse\AspNetMvcStarter\MovieImporter\bin\Debug\EntityFramework.xml
+C:\mvccourse\AspNetMvcStarter\MovieImporter\bin\Debug\EntityFramework.SqlServer.xml
+C:\mvccourse\AspNetMvcStarter\MovieImporter\obj\x86\Debug\MovieImporter.csprojResolveAssemblyReference.cache
+C:\mvccourse\AspNetMvcStarter\MovieImporter\obj\x86\Debug\MovieImporter.exe
+C:\mvccourse\AspNetMvcStarter\MovieImporter\obj\x86\Debug\MovieImporter.pdb
