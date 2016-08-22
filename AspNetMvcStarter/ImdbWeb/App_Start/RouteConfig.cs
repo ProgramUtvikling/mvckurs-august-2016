@@ -14,7 +14,7 @@ namespace ImdbWeb
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
 			routes.MapMvcAttributeRoutes();
-
+									
 			//routes.MapRoute("Movies by genres",
 			//	"Movie/Genre/{genrename}", new { Controller = "Movie", Action = "MoviesByGenre" });
 

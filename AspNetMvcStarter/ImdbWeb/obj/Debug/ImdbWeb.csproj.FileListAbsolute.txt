@@ -52,3 +52,9 @@ C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\System.Web.Http.WebHost.xml
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\obj\Debug\ImdbWeb.csprojResolveAssemblyReference.cache
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\obj\Debug\ImdbWeb.dll
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\obj\Debug\ImdbWeb.pdb
+C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\EntityFramework.dll
+C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\EntityFramework.SqlServer.dll
+C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\MovieDAL.dll
+C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\MovieDAL.pdb
+C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\EntityFramework.xml
+C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\EntityFramework.SqlServer.xml
