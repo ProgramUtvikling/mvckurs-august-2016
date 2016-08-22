@@ -1,0 +1,45 @@
+﻿@model MovieDAL.Movie
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Details</title>
+</head>
+<body>
+	<h1>@Model.Title</h1>
+	<p>@Model.OriginalTitle (@Model.ProductionYear)</p>
+	<p>@Model.Description</p>
+
+	<h2>Actors</h2>
+	<ul>
+		@foreach (var person in Model.Actors)
+		{
+			<li>
+				@Html.ActionLink(person.Name, "Details", "Person", new { id = person.PersonId }, null)
+			</li>
+		}
+	</ul>
+
+	<h2>Producers</h2>
+	<ul>
+		@foreach (var person in Model.Producers)
+		{
+			<li>
+				@Html.ActionLink(person.Name, "Details", "Person", new { id = person.PersonId }, null)
+			</li>
+		}
+	</ul>
+
+	<h2>Directors</h2>
+	<ul>
+		@foreach (var person in Model.Directors)
+		{
+			<li>
+				@Html.ActionLink(person.Name, "Details", "Person", new { id = person.PersonId }, null)
+			</li>
+		}
+	</ul>
+</body>
+</html>

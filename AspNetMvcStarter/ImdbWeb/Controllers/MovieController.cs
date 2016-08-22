@@ -13,38 +13,41 @@ namespace ImdbWeb.Controllers
 		{
 			var db = new MovieDAL.ImdbContext();
 
-			// hente alle filmer
 			var movies = db.Movies;
 
-			// legg dem i ViewData.Model
 			ViewData.Model = movies;
-
 			return View();
 		}
 
-		[Route("movie-{id}")]
 		public ViewResult Details(string id)
 		{
 			var db = new MovieDAL.ImdbContext();
 
-			// hente film fra db
 			var movie = db.Movies.Find(id);
 
-			// legg den i ViewData.Model
 			ViewData.Model = movie;
-
 			return View();
 		}
 
-		public string Genres()
+		public ViewResult Genres()
 		{
-			return "MovieController.Genres()";
+			var db = new MovieDAL.ImdbContext();
+
+			var genres = db.Genres;
+
+			ViewData.Model = genres;
+			return View();
 		}
 
 		[Route("Movie/Genre/{genrename}")]
-		public string MoviesByGenre(string genrename)
+		public ViewResult MoviesByGenre(string genrename)
 		{
-			return $"MovieController.MoviesByGenre({genrename})";
+			var db = new MovieDAL.ImdbContext();
+
+			var movie = db.Movies.Where(m => m.Genre.Name == genrename);
+
+			ViewData.Model = movie;
+			return View("Index");
 		}
 	}
 }

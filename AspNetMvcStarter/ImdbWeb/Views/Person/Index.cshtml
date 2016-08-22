@@ -1,0 +1,15 @@
+﻿@model IEnumerable<MovieDAL.Person>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Personer</h1>
+<ul>
+	@foreach (var person in Model)
+	{
+		<li>
+			@Html.ActionLink(person.Name, "Details", "Person", new {id = person.PersonId }, null)
+		</li>
+	}
+</ul>
+
