@@ -151,6 +151,7 @@
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Models\PersonModels\PersonIndexModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -171,6 +172,8 @@
     <Content Include="Views\Movie\Genres.cshtml" />
     <Content Include="Views\Person\Index.cshtml" />
     <Content Include="Views\Person\Details.cshtml" />
+    <Content Include="Views\Movie\_PersonList.cshtml" />
+    <Content Include="Views\Movie\FilmenFinnesIkke.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -180,7 +183,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Image\" />
   </ItemGroup>
   <ItemGroup>

@@ -19,11 +19,17 @@ namespace ImdbWeb.Controllers
 			return View();
 		}
 
-		public ViewResult Details(string id)
+		public ActionResult Details(string id)
 		{
 			var db = new MovieDAL.ImdbContext();
 
 			var movie = db.Movies.Find(id);
+
+			if(movie == null)
+			{
+				return HttpNotFound();
+			}
+
 
 			ViewData.Model = movie;
 			return View();
@@ -40,13 +46,20 @@ namespace ImdbWeb.Controllers
 		}
 
 		[Route("Movie/Genre/{genrename}")]
-		public ViewResult MoviesByGenre(string genrename)
+		public ActionResult MoviesByGenre(string genrename)
 		{
 			var db = new MovieDAL.ImdbContext();
+			var genre = db.Genres.SingleOrDefault(g => g.Name == genrename);
+			if(genre == null)
+			{
+				return HttpNotFound();
+			}
 
-			var movie = db.Movies.Where(m => m.Genre.Name == genrename);
+			var movies = genre.Movies;
 
-			ViewData.Model = movie;
+			ViewData.Model = movies;
+			//ViewData["Tittel"] = genrename;
+			ViewBag.Tittel = genre.Name;
 			return View("Index");
 		}
 	}

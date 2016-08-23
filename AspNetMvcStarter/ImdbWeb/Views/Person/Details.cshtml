@@ -1,37 +1,30 @@
-﻿@model MovieDAL.Person
+﻿@model Person
 @{
-    ViewBag.Title = "Details";
+	ViewBag.Title = "Details";
 }
 
 <h1>@Model.Name</h1>
 
-<h2>Skuespiller</h2>
-<ul>
-	@foreach (var movie in Model.ActedMovies)
-	{
-		<li>
-			@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, null)
-		</li>
-	}
-</ul>
+@MovieList("Skuespiller i", Model.ActedMovies)
+@MovieList("Produsent for", Model.ProducedMovies)
+@MovieList("Regisør for", Model.DirectedMovies)
 
-<h2>Produsent</h2>
-<ul>
-	@foreach (var movie in Model.ProducedMovies)
-	{
-		<li>
-			@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, null)
-		</li>
-	}
-</ul>
 
-<h2>Regisør</h2>
-<ul>
-	@foreach (var movie in Model.DirectedMovies)
-	{
-		<li>
-			@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, null)
-		</li>
-	}
-</ul>
 
+
+@helper MovieList(string title, IEnumerable<MovieDAL.Movie> movies)
+{
+	if (movies.Any())
+	{
+
+		<h2>@title</h2>
+		<ul>
+			@foreach (var movie in movies)
+			{
+				<li>
+					@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, null)
+				</li>
+			}
+		</ul>
+	}
+}

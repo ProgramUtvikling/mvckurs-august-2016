@@ -1,55 +1,25 @@
-﻿@model MovieDAL.Movie
+﻿
+@model Movie
 
-<!DOCTYPE html>
+<h1>@Model.Title</h1>
+<p>@Model.OriginalTitle (@Model.ProductionYear)</p>
 
-<html>
-<head>
-	<meta name="viewport" content="width=device-width" />
-	<title>Details</title>
-</head>
-<body>
-	<h1>@Model.Title</h1>
-	<p>@Model.OriginalTitle (@Model.ProductionYear)</p>
+<dl>
+	<dt>Sjanger</dt>
+	<dd>@Model.Genre.Name</dd>
+	<dt>Produksjonsår</dt>
+	<dd>@Model.ProductionYear</dd>
+	<dt>Filmens varighet</dt>
+	<dd>@Model.RunningLength minutter</dd>
+	<dt>Produsenter</dt>
+	<dd>@Html.PrettyJoin(Model.Producers)</dd>
+	<dt>Regisører</dt>
+	<dd>@Html.PrettyJoin(Model.Directors)</dd>
+</dl>
 
-	<dl>
-		<dt>Sjanger</dt>
-		<dd>@Model.Genre.Name</dd>
-		<dt>Produksjonsår</dt>
-		<dd>@Model.ProductionYear</dd>
-		<dt>Filmens varighet</dt>
-		<dd>@Model.RunningLength minutter</dd>
-	</dl>
+<p>@Model.Description</p>
 
-	<p>@Model.Description</p>
 
-	<h2>Actors</h2>
-	<ul>
-		@foreach (var person in Model.Actors)
-		{
-			<li>
-				@Html.ActionLink(person.Name, "Details", "Person", new { id = person.PersonId }, null)
-			</li>
-		}
-	</ul>
+<h2>Actors</h2>
+@Html.Partial("_PersonList", Model.Actors)
 
-	<h2>Producers</h2>
-	<ul>
-		@foreach (var person in Model.Producers)
-		{
-			<li>
-				@Html.ActionLink(person.Name, "Details", "Person", new { id = person.PersonId }, null)
-			</li>
-		}
-	</ul>
-
-	<h2>Directors</h2>
-	<ul>
-		@foreach (var person in Model.Directors)
-		{
-			<li>
-				@Html.ActionLink(person.Name, "Details", "Person", new { id = person.PersonId }, null)
-			</li>
-		}
-	</ul>
-</body>
-</html>

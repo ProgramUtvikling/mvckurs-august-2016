@@ -1,21 +1,14 @@
-﻿@model IEnumerable<MovieDAL.Movie>
+﻿@model IEnumerable<Movie>
 
-<!DOCTYPE html>
 
-<html>
-<head>
-	<meta name="viewport" content="width=device-width" />
-	<title>Index</title>
-</head>
-<body>
-	<h1>Filmer</h1>
-	<ul>
-		@foreach (var movie in Model)
-		{
-			<li>
-				@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId}, null)
-			</li>
-		}
-	</ul>
-</body>
-</html>
+<h1>Filmer</h1>
+<h2>@ViewBag.Tittel</h2>
+
+<ul>
+	@foreach (var movie in Model.OrderBy(m => m.Title))
+	{
+		<li>
+			@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, null)
+		</li>
+	}
+</ul>

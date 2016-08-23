@@ -1,4 +1,5 @@
-﻿using MovieDAL;
+﻿using ImdbWeb.Model.PersonModels;
+using MovieDAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,33 +15,49 @@ namespace ImdbWeb.Controllers
 
 		public ViewResult Actors()
 		{
-			ViewData.Model = from p in _db.Persons
-							 where p.ActedMovies.Any()
-							 select p;
-
+			var movies = from p in _db.Persons
+						 where p.ActedMovies.Any()
+						 select p;
+			ViewData.Model = new PersonIndexModel
+			{
+				Movies = movies,
+				Title = "Skuespillere"
+			};
 			return View("Index");
 		}
 		public ViewResult Producers()
 		{
-			ViewData.Model = from p in _db.Persons
-							 where p.ProducedMovies.Any()
-							 select p;
-
+			var movies = from p in _db.Persons
+						 where p.ProducedMovies.Any()
+						 select p;
+			ViewData.Model = new PersonIndexModel
+			{
+				Movies = movies,
+				Title = "Produsenter"
+			};
 			return View("Index");
 		}
 		public ViewResult Directors()
 		{
-			ViewData.Model = from p in _db.Persons
-							 where p.DirectedMovies.Any()
-							 select p;
-
+			var movies = from p in _db.Persons
+						 where p.DirectedMovies.Any()
+						 select p;
+			ViewData.Model = new PersonIndexModel
+			{
+				Movies = movies,
+				Title = "Regisører"
+			};
 			return View("Index");
 		}
 
 		[Route("{id:int}")]
-		public ViewResult Details(int id)
+		public ActionResult Details(int id)
 		{
 			var person = _db.Persons.Find(id);
+			if(person == null)
+			{
+				return HttpNotFound();
+			}
 
 			ViewData.Model = person;
 			return View();
