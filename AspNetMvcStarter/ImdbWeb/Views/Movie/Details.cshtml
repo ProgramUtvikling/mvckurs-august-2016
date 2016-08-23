@@ -10,6 +10,16 @@
 <body>
 	<h1>@Model.Title</h1>
 	<p>@Model.OriginalTitle (@Model.ProductionYear)</p>
+
+	<dl>
+		<dt>Sjanger</dt>
+		<dd>@Model.Genre.Name</dd>
+		<dt>Produksjonsår</dt>
+		<dd>@Model.ProductionYear</dd>
+		<dt>Filmens varighet</dt>
+		<dd>@Model.RunningLength minutter</dd>
+	</dl>
+
 	<p>@Model.Description</p>
 
 	<h2>Actors</h2>
