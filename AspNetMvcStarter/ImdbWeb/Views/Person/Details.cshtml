@@ -22,6 +22,8 @@
 			@foreach (var movie in movies)
 			{
 				<li>
+					@Cover.Thumb(movie)
+					<img src="@Url.Action("CreateImage", "Image", new { id = movie.MovieId, fmt = "thumb" })" />
 					@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, null)
 				</li>
 			}

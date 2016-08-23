@@ -11,6 +11,7 @@ namespace ImdbWeb
 	{
 		public static void RegisterRoutes(RouteCollection routes)
 		{
+			var ns = new[] { "ImdbWeb.Controllers" };
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
 			routes.MapMvcAttributeRoutes();
@@ -22,12 +23,13 @@ namespace ImdbWeb
 			//	"Person/{id}", new { Controller = "Person", Action = "Details" }, new { id = @"\d+"});
 
 			routes.MapRoute("Movie Covers",
-				"Image/{fmt}/{id}.jpg", new { Controller = "Image", Action = "CreateImage" });
+				"Image/{fmt}/{id}.jpg", new { Controller = "Image", Action = "CreateImage" }, ns);
 
 			routes.MapRoute(
 				name: "Default",
 				url: "{controller}/{action}/{id}",
 				defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+				,namespaces: ns
 			);
 
 		}

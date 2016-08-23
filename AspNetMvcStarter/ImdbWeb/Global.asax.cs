@@ -16,12 +16,16 @@ namespace ImdbWeb
         {
 			ViewEngines.Engines.Clear();
 			ViewEngines.Engines.Add(new RazorViewEngine());
+			
+			GlobalFilters.Filters.Add(new HandleErrorAttribute());
+			//GlobalFilters.Filters.Add(new System.Web.Mvc.AuthorizeAttribute());
 
 
-            // Code that runs on application startup
-            AreaRegistration.RegisterAllAreas();
+
+			// Code that runs on application startup
+			AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);            
+            RouteConfig.RegisterRoutes(RouteTable.Routes);        
         }
     }
 }
