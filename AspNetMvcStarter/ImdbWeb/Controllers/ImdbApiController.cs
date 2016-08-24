@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Xml.Linq;
@@ -9,8 +10,21 @@ namespace ImdbWeb.Controllers
 {
 	public class ImdbApiController : ImdbControllerBase
 	{
-		public ActionResult Movies()
+		public ActionResult Movies(string fmt = "xml")
 		{
+			#region *** TOP SECRET HIDDEN STUFF ***
+			//	switch (fmt.ToLower())
+			//	{
+			//		case "xml": return MoviesAsXml();
+			//		case "json": return MoviesAsJson();
+			//		default: return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			//	}
+			//}
+
+			//private ActionResult MoviesAsXml()
+			//{ 
+			#endregion
+
 			var doc = new XElement("movies",
 								from movie in Db.Movies.ToList()
 								select new XElement("movie",
@@ -20,6 +34,14 @@ namespace ImdbWeb.Controllers
 				);
 
 			return Content(doc.ToString());
+		}
+
+		private ActionResult MoviesAsJson()
+		{
+			var doc = from movie in Db.Movies.ToList()
+					  select new { movie.Title, movie.MovieId };
+
+			return Json(doc);
 		}
 
 		[Route("Movie/Details/{id}.xml")]
