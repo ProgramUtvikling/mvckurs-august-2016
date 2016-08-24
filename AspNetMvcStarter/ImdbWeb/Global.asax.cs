@@ -7,6 +7,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
+using ImdbWeb.Filters;
 
 namespace ImdbWeb
 {
@@ -18,6 +19,7 @@ namespace ImdbWeb
 			ViewEngines.Engines.Add(new RazorViewEngine());
 			
 			GlobalFilters.Filters.Add(new HandleErrorAttribute());
+			GlobalFilters.Filters.Add(new TimingAttribute());
 			//GlobalFilters.Filters.Add(new System.Web.Mvc.AuthorizeAttribute());
 
 

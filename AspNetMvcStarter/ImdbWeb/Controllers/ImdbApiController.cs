@@ -12,19 +12,15 @@ namespace ImdbWeb.Controllers
 	{
 		public ActionResult Movies(string fmt = "xml")
 		{
-			#region *** TOP SECRET HIDDEN STUFF ***
-			//	switch (fmt.ToLower())
-			//	{
-			//		case "xml": return MoviesAsXml();
-			//		case "json": return MoviesAsJson();
-			//		default: return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-			//	}
-			//}
-
-			//private ActionResult MoviesAsXml()
-			//{ 
-			#endregion
-
+			switch (fmt.ToLower())
+			{
+				case "xml": return MoviesAsXml();
+				case "json": return MoviesAsJson();
+				default: return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+		}
+		private ActionResult MoviesAsXml()
+		{ 
 			var doc = new XElement("movies",
 								from movie in Db.Movies.ToList()
 								select new XElement("movie",
@@ -33,7 +29,7 @@ namespace ImdbWeb.Controllers
 								)
 				);
 
-			return Content(doc.ToString());
+			return Content(doc.ToString(), "application/xml");
 		}
 
 		private ActionResult MoviesAsJson()
@@ -41,7 +37,7 @@ namespace ImdbWeb.Controllers
 			var doc = from movie in Db.Movies.ToList()
 					  select new { movie.Title, movie.MovieId };
 
-			return Json(doc);
+			return Json(doc,JsonRequestBehavior.AllowGet);
 		}
 
 		[Route("Movie/Details/{id}.xml")]

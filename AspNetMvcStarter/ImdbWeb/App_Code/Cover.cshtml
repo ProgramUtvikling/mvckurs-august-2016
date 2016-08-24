@@ -3,10 +3,12 @@
 	var url = new System.Web.Mvc.UrlHelper(Context.Request.RequestContext);
 	<img src="@url.Action("CreateImage", "Image", new { id = movie.MovieId, fmt })" alt="Cover for @movie.Title" />
 }
+
 @helper Thumb(MovieDAL.Movie movie)
 {
 	@Image(movie, "thumb")
 }
+
 @helper Medium(MovieDAL.Movie movie)
 {
 	@Image(movie, "medium")

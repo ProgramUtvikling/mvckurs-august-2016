@@ -9,21 +9,16 @@
 @MovieList("Produsent for", Model.ProducedMovies)
 @MovieList("Regisør for", Model.DirectedMovies)
 
-
-
-
 @helper MovieList(string title, IEnumerable<MovieDAL.Movie> movies)
 {
 	if (movies.Any())
 	{
-
 		<h2>@title</h2>
 		<ul>
 			@foreach (var movie in movies)
 			{
 				<li>
 					@Cover.Thumb(movie)
-					<img src="@Url.Action("CreateImage", "Image", new { id = movie.MovieId, fmt = "thumb" })" />
 					@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, null)
 				</li>
 			}

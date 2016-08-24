@@ -721,6 +721,7 @@
     <Compile Include="Controllers\ImdbControllerBase.cs" />
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Filters\TimingAttribute.cs" />
     <Compile Include="Models\PersonModels\PersonIndexModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
