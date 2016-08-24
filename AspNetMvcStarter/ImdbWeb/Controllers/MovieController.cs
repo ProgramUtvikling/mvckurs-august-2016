@@ -1,7 +1,9 @@
 ﻿using ImdbWeb.Filters;
 using System;
+using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,18 +12,18 @@ namespace ImdbWeb.Controllers
 	public class MovieController : ImdbControllerBase
     {
 		[OutputCache(CacheProfile = "Short")]
-		public ViewResult Index()
+		public async Task<ViewResult> Index()
 		{
 			var movies = Db.Movies;
 
-			ViewData.Model = movies;
+			ViewData.Model = await movies.ToListAsync();
 			return View();
 		}
 
 
-		public ActionResult Details(string id)
+		public async Task<ActionResult> Details(string id)
 		{
-			var movie = Db.Movies.Find(id);
+			var movie = await Db.Movies.FindAsync(id);
 
 			if(movie == null)
 			{
@@ -33,23 +35,24 @@ namespace ImdbWeb.Controllers
 		}
 
 		[OutputCache(CacheProfile = "Long")]
-		public ViewResult Genres()
+		public async Task<ViewResult> Genres()
 		{
 			var genres = Db.Genres;
 
-			ViewData.Model = genres;
+			ViewData.Model = await genres.ToListAsync();
 			return View();
 		}
 
 		[Route("Movie/Genre/{genrename}")]
-		public ActionResult MoviesByGenre(string genrename)
+		public async Task<ActionResult> MoviesByGenre(string genrename)
 		{
-			var genre = Db.Genres.SingleOrDefault(g => g.Name == genrename);
+			var genre = await Db.Genres.SingleOrDefaultAsync(g => g.Name == genrename);
 			if(genre == null)
 			{
 				return HttpNotFound();
 			}
 
+			//TODO: Hvordan hente async
 			var movies = genre.Movies;
 
 			ViewData.Model = movies;

@@ -31,5 +31,23 @@ namespace ImdbWeb.Controllers
 
 			return View();
 		}
+
+		public ActionResult LogOut()
+		{
+			FormsAuthentication.SignOut();
+			return RedirectToAction("Index", "Home");
+		}
+
+		[ChildActionOnly]
+		public ActionResult LoginStatus()
+		{
+			if (Request.IsAuthenticated)
+			{
+				ViewData.Model = User.Identity;
+				return PartialView("LoggedIn");
+			}
+
+			return PartialView("NotLoggedIn");
+		}
     }
 }
