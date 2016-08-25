@@ -23,6 +23,8 @@ namespace ImdbWeb.Controllers
 
 		public async Task<ActionResult> Details(string id)
 		{
+			//await Task.Delay(2000);
+
 			var movie = await Db.Movies.FindAsync(id);
 
 			if(movie == null)
@@ -31,6 +33,11 @@ namespace ImdbWeb.Controllers
 			}
 			
 			ViewData.Model = movie;
+			if (Request.IsAjaxRequest())
+			{
+				return PartialView();
+			}
+
 			return View();
 		}
 

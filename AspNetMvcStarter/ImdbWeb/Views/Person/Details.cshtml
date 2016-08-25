@@ -19,9 +19,19 @@
 			{
 				<li>
 					@Cover.Thumb(movie)
-					@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, null)
+					@*@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, null)*@
+					@Ajax.ActionLink(movie.Title, "Details", "Movie", new { id = movie.MovieId }, new AjaxOptions
+			   {
+				   UpdateTargetId = "popup",
+				   InsertionMode = InsertionMode.InsertBefore,
+				   OnBegin = "dimBackground()",
+				   OnSuccess = "showPopup()",
+				   OnFailure = "resetBackground()"
+			   })
 				</li>
 			}
 		</ul>
 	}
 }
+
+

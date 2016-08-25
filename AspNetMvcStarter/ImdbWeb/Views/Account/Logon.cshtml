@@ -10,6 +10,8 @@
 	<text>
 		@Html.AntiForgeryToken()
 
+		@*@Html.EditorForModel()*@
+
 		@Html.LabelFor(m => m.Username)
 		@Html.EditorFor(m => m.Username)
 		@Html.ValidationMessageFor(m => m.Username)

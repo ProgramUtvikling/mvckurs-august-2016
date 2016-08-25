@@ -10,7 +10,7 @@
 	<dt>Produksjonsår</dt>
 	<dd>@Model.ProductionYear</dd>
 	<dt>Filmens varighet</dt>
-	<dd>@Model.RunningLength minutter</dd>
+	<dd>@Html.DisplayFor(m => Model.RunningLength, "duration")</dd>
 	<dt>Produsenter</dt>
 	<dd>@Html.PrettyJoin(Model.Producers)</dd>
 	<dt>Regisører</dt>

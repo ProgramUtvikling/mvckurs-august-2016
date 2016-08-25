@@ -1,0 +1,47 @@
+﻿@model ImdbWeb.Areas.Admin.Models.MovieModels.MovieDeleteModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Slett film</h2>
+
+<h3>Er du sikker på at du vil slette denne filmen?</h3>
+<div>
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.Title)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Title)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.OriginalTitle)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.OriginalTitle)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.ProductionYear)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.ProductionYear)
+		</dd>
+
+	</dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+		@Html.HttpMethodOverride(HttpVerbs.Delete)
+
+        <div class="form-actions no-color">
+			<button type="submit" class="btn btn-default">Slett filmen</button>
+            @Html.ActionLink("Tilbake til listen", "Index")
+        </div>
+    }
+</div>

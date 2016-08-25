@@ -25,7 +25,7 @@ namespace ImdbWeb.Controllers
 		public ActionResult Demo(DemoModel model)
 		{
 			// ...
-			model.Artikkel = Sanitizer.GetSafeHtmlFragment(model.Artikkel);
+			//model.Artikkel = Sanitizer.GetSafeHtmlFragment(model.Artikkel);
 
 			ViewData.Model = model;
 			return View("DemoResult");
