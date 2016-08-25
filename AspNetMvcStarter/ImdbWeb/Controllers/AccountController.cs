@@ -1,6 +1,8 @@
-﻿using System;
+﻿using ImdbWeb.Model.AccountModels;
+using System;
 using System.Collections.Generic;
-using System.Linq;
+//using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -17,18 +19,23 @@ namespace ImdbWeb.Controllers
 
 		[HttpPost]
 		[AllowAnonymous]
-		public ActionResult Logon(string username, string password, string returnUrl)
+		[ValidateAntiForgeryToken]
+		public ActionResult Logon(LogonModel model, string returnUrl)
 		{
-			if(username == "arjan" && password == "pass")
+			if (ModelState.IsValid)
 			{
-				FormsAuthentication.SetAuthCookie(username, false);
-				if(string.IsNullOrWhiteSpace(returnUrl))
+				if (model.Username == "arjan" && model.Password == "pass")
 				{
-					return View("LoggedOnOk");
+					FormsAuthentication.SetAuthCookie(model.Username, false);
+					if (string.IsNullOrWhiteSpace(returnUrl))
+					{
+						return RedirectToAction("Index", "Home");
+					}
+					return Redirect(returnUrl);
 				}
-				return Redirect(returnUrl);
-			}
 
+				ModelState.AddModelError("", "Ugyldig brukernavn og/eller passord");
+			}
 			return View();
 		}
 
@@ -39,6 +46,7 @@ namespace ImdbWeb.Controllers
 		}
 
 		[ChildActionOnly]
+		[AllowAnonymous]
 		public ActionResult LoginStatus()
 		{
 			if (Request.IsAuthenticated)

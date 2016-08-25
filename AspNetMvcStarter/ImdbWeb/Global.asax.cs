@@ -20,6 +20,7 @@ namespace ImdbWeb
 			
 			GlobalFilters.Filters.Add(new HandleErrorAttribute());
 			GlobalFilters.Filters.Add(new TimingAttribute());
+			GlobalFilters.Filters.Add(new LocalizeAttribute());
 			//GlobalFilters.Filters.Add(new System.Web.Mvc.AuthorizeAttribute());
 
 

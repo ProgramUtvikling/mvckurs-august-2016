@@ -44,12 +44,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AntiXssLibrary, Version=4.3.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AntiXSS.4.3.0\lib\net40\AntiXssLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlSanitizationLibrary, Version=4.3.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AntiXSS.4.3.0\lib\net40\HtmlSanitizationLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -715,10 +723,13 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\MovieController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DemoModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ImdbApiController.cs" />
     <Compile Include="Controllers\ImdbControllerBase.cs" />
+    <Compile Include="Filters\LocalizeAttribute.cs" />
+    <Compile Include="Models\AccountModels\LogonModel.cs" />
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Filters\TimingAttribute.cs" />
@@ -745,12 +756,13 @@
     <Content Include="Views\Person\Details.cshtml" />
     <Content Include="Views\Movie\_PersonList.cshtml" />
     <Content Include="Views\Account\Logon.cshtml" />
-    <Content Include="Views\Account\LoggedOnOk.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="App_Code\Cover.cshtml" />
     <Content Include="Views\Account\LoggedIn.cshtml" />
     <Content Include="Views\Account\NotLoggedIn.cshtml" />
+    <Content Include="Views\Home\Demo.cshtml" />
+    <Content Include="Views\Home\DemoResult.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -762,11 +774,12 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Movie\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Views\Image\" />
-    <Folder Include="Views\ImdbApi\" />
-    <Folder Include="Views\ImdbControllerBase\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">
+      <Project>{910cfadb-79a5-4243-8f42-4d923ddb4f3e}</Project>
+      <Name>ClassLibrary1</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MovieDAL\MovieDAL.csproj">
       <Project>{bfa4a673-6f82-43d9-a055-609cc34438d4}</Project>
       <Name>MovieDAL</Name>

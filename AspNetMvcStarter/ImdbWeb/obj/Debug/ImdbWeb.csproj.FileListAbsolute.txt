@@ -14,6 +14,8 @@ C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\roslyn\VBCSCompiler.exe.config
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\ImdbWeb.dll.config
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\ImdbWeb.dll
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\ImdbWeb.pdb
+C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\EntityFramework.dll
+C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\EntityFramework.SqlServer.dll
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\Microsoft.AI.Agent.Intercept.dll
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\Microsoft.AI.DependencyCollector.dll
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -23,6 +25,7 @@ C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\Microsoft.AI.WindowsServer.dll
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\Microsoft.ApplicationInsights.dll
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\Microsoft.Web.Infrastructure.dll
+C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\MovieDAL.dll
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\Newtonsoft.Json.dll
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\System.Net.Http.Formatting.dll
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\System.Web.Helpers.dll
@@ -33,6 +36,9 @@ C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\System.Web.Razor.dll
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\System.Web.Webpages.Deployment.dll
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\System.Web.Webpages.dll
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\System.Web.Webpages.Razor.dll
+C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\MovieDAL.pdb
+C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\EntityFramework.xml
+C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\EntityFramework.SqlServer.xml
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\Microsoft.AI.DependencyCollector.xml
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\Microsoft.AI.Web.xml
@@ -52,9 +58,10 @@ C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\System.Web.Http.WebHost.xml
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\obj\Debug\ImdbWeb.csprojResolveAssemblyReference.cache
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\obj\Debug\ImdbWeb.dll
 C:\mvccourse\AspNetMvcStarter\ImdbWeb\obj\Debug\ImdbWeb.pdb
-C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\EntityFramework.dll
-C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\EntityFramework.SqlServer.dll
-C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\MovieDAL.dll
-C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\MovieDAL.pdb
-C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\EntityFramework.xml
-C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\EntityFramework.SqlServer.xml
+C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\AntiXssLibrary.dll
+C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\HtmlSanitizationLibrary.dll
+C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\AntiXssLibrary.xml
+C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\HtmlSanitizationLibrary.xml
+C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\ClassLibrary1.dll
+C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\ClassLibrary1.pdb
+C:\mvccourse\AspNetMvcStarter\ImdbWeb\bin\en\ClassLibrary1.resources.dll

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Security.Application;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,9 +16,19 @@ namespace ImdbWeb.Controllers
             return View();
         }
 
-		public ViewResult Demo()
+		public ActionResult Demo()
 		{
-			throw new Exception();
+			return View();
 		}
-    }
+
+		[HttpPost]
+		public ActionResult Demo(DemoModel model)
+		{
+			// ...
+			model.Artikkel = Sanitizer.GetSafeHtmlFragment(model.Artikkel);
+
+			ViewData.Model = model;
+			return View("DemoResult");
+		}
+	}
 }

@@ -1,0 +1,11 @@
+﻿@model ImdbWeb.Controllers.DemoModel
+
+@{
+    ViewBag.Title = "DemoResult";
+}
+
+
+<h1>Dette kommer fra brukeren</h1>
+
+<h2>@Model.Overskrift</h2>
+<p>@Html.Raw(Model.Artikkel)</p>
