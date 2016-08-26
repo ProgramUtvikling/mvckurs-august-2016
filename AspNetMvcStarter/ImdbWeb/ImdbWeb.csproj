@@ -765,6 +765,7 @@
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ImdbApiController.cs" />
     <Compile Include="Controllers\ImdbControllerBase.cs" />
+    <Compile Include="Models\MovieModels\VoteResultModel.cs" />
     <Compile Include="Filters\LocalizeAttribute.cs" />
     <Compile Include="Models\AccountModels\LogonModel.cs" />
     <Compile Include="Controllers\MovieController.cs" />
@@ -791,7 +792,6 @@
     <Content Include="Views\Movie\Genres.cshtml" />
     <Content Include="Views\Person\Index.cshtml" />
     <Content Include="Views\Person\Details.cshtml" />
-    <Content Include="Views\Movie\_PersonList.cshtml" />
     <Content Include="Views\Account\Logon.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
@@ -806,6 +806,9 @@
     <Content Include="Views\Shared\DisplayTemplates\Duration.cshtml" />
     <Content Include="scripts\jquery-3.1.0.slim.min.map" />
     <Content Include="scripts\jquery-3.1.0.min.map" />
+    <Content Include="Views\Movie\_VoteResult.cshtml" />
+    <Content Include="Views\Movie\VoteResult.cshtml" />
+    <Content Include="Views\Movie\_Comment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

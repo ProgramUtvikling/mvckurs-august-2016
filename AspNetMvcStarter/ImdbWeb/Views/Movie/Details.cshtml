@@ -17,11 +17,51 @@
 	<dd>@Html.PrettyJoin(Model.Directors)</dd>
 </dl>
 
+<section id="voting">
+	@using (Ajax.BeginForm("Vote", "Movie", new { id = Model.MovieId }, new AjaxOptions { UpdateTargetId = "voting" }))
+	{
+		<text>
+			@Html.AntiForgeryToken()
+			<select name="vote">
+				<option value="">-- velg --</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+			<button>Avgi stemme</button>
+		</text>
+	}
+</section>
+
 @Cover.Medium(Model)
 
 <p>@Model.Description</p>
 
-
 <h2>Actors</h2>
-@Html.Partial("_PersonList", Model.Actors)
+<ul>
+	@foreach (var person in Model.Actors)
+	{
+		<li>
+			@Html.ActionLink(person.Name, "Details", "Person", new { id = person.PersonId }, null)
+		</li>
+	}
+</ul>
 
+<section id="commenting">
+	@using (Ajax.BeginForm("Comment", "Movie", new { id = Model.MovieId }, new AjaxOptions { UpdateTargetId = "commenting", InsertionMode = InsertionMode.InsertAfter }))
+	{
+		<text>
+			@Html.AntiForgeryToken()
+			<input type="text" name="author" placeholder="Navn" />
+			<input type="text" name="headline" placeholder="Kommentar" />
+			<button>Send inn kommentar</button>
+		</text>
+	}
+
+	@foreach (var comment in Model.Comments)
+	{
+		@Html.Partial("_Comment", comment)
+	}
+</section>

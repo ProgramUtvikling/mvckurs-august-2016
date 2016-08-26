@@ -6,11 +6,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Net;
+using MovieDAL;
+using ImdbWeb.Model.MovieModels;
 
 namespace ImdbWeb.Controllers
 {
 	public class MovieController : ImdbControllerBase
-    {
+	{
 		[OutputCache(CacheProfile = "Short")]
 		public async Task<ViewResult> Index()
 		{
@@ -27,11 +30,11 @@ namespace ImdbWeb.Controllers
 
 			var movie = await Db.Movies.FindAsync(id);
 
-			if(movie == null)
+			if (movie == null)
 			{
 				return HttpNotFound();
 			}
-			
+
 			ViewData.Model = movie;
 			if (Request.IsAjaxRequest())
 			{
@@ -54,18 +57,76 @@ namespace ImdbWeb.Controllers
 		public async Task<ActionResult> MoviesByGenre(string genrename)
 		{
 			var genre = await Db.Genres.SingleOrDefaultAsync(g => g.Name == genrename);
-			if(genre == null)
+			if (genre == null)
 			{
 				return HttpNotFound();
 			}
 
-			//TODO: Hvordan hente async
 			var movies = genre.Movies;
 
 			ViewData.Model = movies;
 			//ViewData["Tittel"] = genrename;
 			ViewBag.Tittel = genre.Name;
 			return View("Index");
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<ActionResult> Vote(string id, int vote)
+		{
+			if (vote < 0 || vote > 5)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+
+			var movie = await Db.Movies.FindAsync(id);
+			if (movie == null)
+			{
+				return HttpNotFound();
+			}
+
+			movie.Ratings.Add(new Rating { Vote = vote });
+			await Db.SaveChangesAsync();
+
+			ViewData.Model = new VoteResultModel
+			{
+				MovieId = movie.MovieId,
+				YourVote = vote,
+				VoteCount = movie.Ratings.Count(),
+				AverageVote = movie.Ratings.Average(r => r.Vote)
+			};
+
+			if (Request.IsAjaxRequest())
+			{
+				return PartialView("_VoteResult");
+			}
+
+			return View("VoteResult");
+
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<ActionResult> Comment(string id, string author, string headline)
+		{
+			var movie = await Db.Movies.FindAsync(id);
+			if (movie == null)
+			{
+				return HttpNotFound();
+			}
+
+			var comment = new Comment { Author = author, Headline = headline };
+			movie.Comments.Add(comment);
+			await Db.SaveChangesAsync();
+
+			ViewData.Model = comment;
+
+			if (Request.IsAjaxRequest())
+			{
+				return PartialView("_Comment");
+			}
+
+			return RedirectToAction("Details", "Movie", new { id });
 		}
 	}
 }

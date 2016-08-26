@@ -9,3 +9,10 @@ dd {
 	margin-bottom: 1em;
 }
 
+#voting{
+	height: 4em;
+}
+
+.comment + .comment {
+	border-top: 1px solid black;
+}

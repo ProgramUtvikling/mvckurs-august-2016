@@ -1,0 +1,8 @@
+﻿@model ImdbWeb.Model.MovieModels.VoteResultModel
+
+Takk for at du stemte. Du ga filmen @Model.YourVote.
+@if(Model.VoteCount > 3)
+{
+	<br />
+	@:Gjennomsnitt etter @Model.VoteCount stemmer er @Model.AverageVote.ToString("F1")
+}
