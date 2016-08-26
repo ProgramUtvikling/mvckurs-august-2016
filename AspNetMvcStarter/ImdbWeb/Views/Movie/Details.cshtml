@@ -22,15 +22,22 @@
 	{
 		<text>
 			@Html.AntiForgeryToken()
-			<select name="vote">
-				<option value="">-- velg --</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			<button>Avgi stemme</button>
+
+			<button name="vote" value="1">1</button>
+			<button name="vote" value="2">2</button>
+			<button name="vote" value="3">3</button>
+			<button name="vote" value="4">4</button>
+			<button name="vote" value="5">5</button>
+
+			@*<select name="vote">
+					<option value="">-- velg --</option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<button>Avgi stemme</button>*@
 		</text>
 	}
 </section>
